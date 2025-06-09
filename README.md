@@ -1,50 +1,50 @@
-```markdown
 # 🚀 ASP.NET Core 8 API Template with N-Tier Architecture
 
 تمبلت قوية وجاهزة لأي مشروع Backend مبنية باستخدام  
-**ASP.NET Core 8** بـ **N-Tier Architecture**، نظيفة، قابلة للتوسع، وقابلة لإعادة الاستخدام في مشاريع التخرج، الـ Freelance، أو حتى الـ Production الحقيقي.
+**ASP.NET Core 8** بـ **N-Tier Architecture**، نظيفة، قابلة للتوسع، وسهلة إعادة الاستخدام سواء في مشاريع التخرج، الـ Freelance أو حتى الـ Production الحقيقي.
 
 ---
 
-## 📂 Project Structure
+## 📁 Project Structure
 
 ```
-SolutionName/
+ApiTemplate/
 │
-├── API                  --> Controllers & appsettings only
-├── DataAccess           --> DbContext, Models, Migrations, Repository & UnitOfWork
-├── Services             --> DTOs, Interfaces, Business Logic, SignalR Hubs
+├── API                  --> Controllers + AppSettings
+├── DataAccess           --> DbContext, Models, Migrations, Repository, UnitOfWork
+├── Services             --> DTOs, Interfaces, Business Logic, SignalR Hubs (optional)
 └── Utilities            --> Shared Logic, Static Helpers, Image Handler
 ```
 
 ---
 
-## 🔐 Built-in Authentication
+## 🔐 Built-in Authentication System
 
-التمبلت جواه Basic Auth System جاهز وبيحتوي على أهم الـ Endpoints لأي تطبيق:
+التمبلت فيها الأساسيات اللي أي Backend بيبدأ بيها:
 
-- ✅ Register
-- ✅ Confirm Email
-- ✅ Login (Access & Refresh Tokens)
-- ✅ Forget Password
-- ✅ Reset Password
+- ✅ **Register**
+- ✅ **Confirm Email**
+- ✅ **Login** (Access Token + Refresh Token)
+- ✅ **Forgot Password**
+- ✅ **Reset Password**
 
-> ✅ **Email Sending** using **MailKit**  
-> 🔐 **OTP** stored in **Redis** for high performance
+🔹 بيتم إرسال الإيميلات باستخدام **MailKit**  
+🔹 الأكواد (OTP) بتتخزن في **Redis** لأداء أسرع
 
 ---
 
-## ⚙️ Features
+## 🔧 Features
 
-- ✅ Clean Code Architecture
-- ✅ N-Tier Modular Design
+- ✅ Clean Architecture
 - ✅ Full Dependency Injection
-- ✅ Scalable & Maintainable
-- ✅ Basic Auth Implementation
-- ✅ Redis Integration for OTP
+- ✅ Ready Authentication System
+- ✅ Modular N-Tier Design
+- ✅ Redis Integration (OTP)
 - ✅ MailKit Integration
-- ✅ Image Handling with path stored in DB
-- ✅ Ready for Real-time (SignalR Hubs)
+- ✅ Image Upload & Path Storage (DB)
+- ✅ Ready for Real-Time with SignalR
+- ✅ Repository + UnitOfWork Patterns
+- ✅ Separated Concerns for Scalability
 
 ---
 
@@ -55,77 +55,95 @@ SolutionName/
 - SQL Server
 - Redis
 - MailKit
-- SignalR (optional, prepared)
-- JWT & Refresh Tokens
+- SignalR (optional)
+- JWT + Refresh Tokens
 
 ---
 
-## 💻 How to Run Locally
+## 🛠️ Getting Started
 
-1. **Clone the Repo**  
-   افتح التيرمنال أو Git Bash واكتب:
-   ```bash
-   git clone https://github.com/YourUsername/YourRepoName.git
-   ```
+### 1. ✅ Clone the Project
 
-2. **Open the Solution**  
-   - افتح Visual Studio 2022 أو أعلى
-   - افتح ملف `.sln`
-
-3. **Set API as Startup Project**  
-   - Right-click على مشروع `API`
-   - اختار `Set as Startup Project`
-
-4. **Configure Database Connection**  
-   - افتح `appsettings.json` في مشروع `API`
-   - عدل الـ Connection String حسب جهازك
-
-5. **Apply Migrations**
-   - افتح Package Manager Console
-   - شغل الأوامر دي:
-     ```bash
-     Update-Database
-     ```
-
-6. **Run the Project**
-   - شغل الـ API من Visual Studio
-   - جرب الـ Endpoints باستخدام Postman أو Swagger
+```bash
+git clone https://github.com/MohamedHawy14/ApiTemplate.git
+```
 
 ---
 
-## 🧪 Ready for Development
+### 2. 📂 Open in Visual Studio
 
-ممكن تبدأ تشتغل على Features جديدة بسهولة:
-
-- ضيف Business Logic في `Services`
-- ضيف API Endpoints في `API/Controllers`
-- تعامل مع البيانات من خلال الـ `UnitOfWork`
-- شارك Data Transfer Objects بين الـ Layers
+- افتح ملف `ApiTemplate.sln` باستخدام **Visual Studio 2022** أو أعلى
 
 ---
 
-## 📌 Suitable For
+### 3. 🚀 Set Startup Project
 
-- مشاريع التخرج
-- أي مشروع Backend جديد
-- تطوير Freelance سريع
-- MVPs و Prototypes
-- Teams بيدورا على Structure نظيف
+- كليك يمين على مشروع `API`
+- اختار: `Set as Startup Project`
+
+---
+
+### 4. ⚙️ Configure Your Connection String
+
+- افتح `appsettings.json` في مشروع `API`
+- عدل الـ `"DefaultConnection"` على حسب الـ SQL Server عندك
+
+---
+
+### 5. 🧱 Apply Migrations
+
+- افتح **Package Manager Console**
+- شغّل:
+
+```bash
+Update-Database
+```
+
+---
+
+### 6. ▶️ Run & Test
+
+- شغّل المشروع من Visual Studio
+- جرب الـ Endpoints باستخدام **Swagger** أو **Postman**
+
+---
+
+## 📦 What You Get Out of the Box
+
+- ✅ Modular Architecture
+- ✅ Built-in Auth (Register/Login/Reset Password)
+- ✅ Redis for OTP
+- ✅ MailKit Email Sender
+- ✅ Image Upload Service
+- ✅ Clean Code & Best Practices
+- ✅ Plug-n-Play Ready
+
+---
+
+## 💡 Suitable For:
+
+- 🎓 Graduation Projects
+- 🚀 MVPs و Prototypes
+- 🧑‍💻 Freelance Work
+- 🏢 Real Production APIs
+- 👨‍👩‍👧‍👦 Small to Mid-size Teams
+
+---
+
+## 🤝 Contribute
+
+- حابب تطور أو تزود Feature جديدة؟  
+  Pull Requests مرحّب بيها 👏
 
 ---
 
 ## 📬 Need Help?
 
-لو عندك أي استفسار أو محتاج مساعدة في استخدام التمبلت، ابعتلي على LinkedIn أو افتح Issue هنا في الريبو ✌️
+لو عندك استفسار أو عايز توجيه في أي خطوة:  
+كلّمني على [LinkedIn](https://www.linkedin.com/in/mohamed-saad-bb0119242) أو افتح Issue على GitHub ✌️
 
 ---
 
-## ⭐ Contribute
-
-- Pull Requests are welcome.
-- حابب تطور أو تزود Features؟ شارك عادي.
-
----
-
-**Built with ❤️ by Mohamed Saad – [LinkedIn](https://www.linkedin.com/in/mohamed-saad-bb0119242)**
-```
+**Built with ❤️ by Mohamed Saad**  
+🔗 GitHub: [MohamedHawy14](https://github.com/MohamedHawy14/ApiTemplate.git)  
+🔗 LinkedIn: [mohamed-saad-bb0119242](https://www.linkedin.com/in/mohamed-saad-bb0119242)
