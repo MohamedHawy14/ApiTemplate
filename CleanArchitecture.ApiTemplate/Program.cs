@@ -72,6 +72,9 @@ namespace CleanArchitecture.Api
             #endregion
             builder.Services.AddAuthorization();
 
+            //RateLimiter
+            builder.Services.AddRateLimiter(EndpointRateLimitPolicies.Register);
+
             // Redis
             builder.Services.AddSingleton<IConnectionMultiplexer>(sp =>
             {
@@ -97,6 +100,7 @@ namespace CleanArchitecture.Api
             app.UseHttpsRedirection();
             app.UseAuthentication();
             app.UseAuthorization();
+            app.UseRateLimiter();
             app.MapControllers();
             app.Run();
         }
