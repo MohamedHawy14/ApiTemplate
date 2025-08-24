@@ -17,12 +17,13 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\uploads\" />
+    <Folder Include="wwwroot\uploads\" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CleanArchitecture.DataAccess\CleanArchitecture.DataAccess.csproj" />
-    <ProjectReference Include="..\CleanArchitecture.Services\CleanArchitecture.Services.csproj" />
-    <ProjectReference Include="..\CleanArchitecture.Utilities\CleanArchitecture.Utilities.csproj" />
+    <ProjectReference Include="..\CleanArchitecture.DataAccess\Eduvision.DataAccess.csproj" />
+    <ProjectReference Include="..\CleanArchitecture.Services\Eduvision.Services.csproj" />
+    <ProjectReference Include="..\CleanArchitecture.Utilities\Eduvision.Utilities.csproj" />
   </ItemGroup>
 
 </Project>
