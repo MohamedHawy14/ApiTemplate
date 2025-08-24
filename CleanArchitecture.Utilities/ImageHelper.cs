@@ -30,7 +30,7 @@ namespace Utilites
             if (imageFile.Length > _maxImageSize)
                 throw new ArgumentException("Image size cannot exceed 3MB.");
 
-            // حفظ الصورة في مجلد uploads داخل wwwroot
+            
             string uploadsFolder = Path.Combine(_env.WebRootPath, "uploads");
             if (!Directory.Exists(uploadsFolder))
                 Directory.CreateDirectory(uploadsFolder);
@@ -43,14 +43,14 @@ namespace Utilites
                 await imageFile.CopyToAsync(stream);
             }
 
-            // بناء الرابط الكامل للصورة باستخدام HttpContext
+            
             var request = _httpContextAccessor.HttpContext?.Request;
             string baseUrl = $"{request?.Scheme}://{request?.Host}";
 
             return $"{baseUrl}/uploads/{uniqueFileName}";
         }
 
-        // دالة لحذف الصورة من السيرفر بناءً على URL
+       
         public static bool DeleteImage(string imageUrl)
         {
             if (string.IsNullOrEmpty(imageUrl))
@@ -58,12 +58,12 @@ namespace Utilites
 
             try
             {
-                // استخراج المسار النسبي من URL
+               
                 var uri = new Uri(imageUrl);
-                // مثلاً: uploads/unique-filename.jpg
+                
                 string relativePath = uri.AbsolutePath.TrimStart('/').Replace('/', Path.DirectorySeparatorChar);
 
-                // تحويل المسار النسبي لمسار فعلي باستخدام wwwroot
+                
                 string filePath = Path.Combine(_env.WebRootPath, relativePath);
 
                 if (File.Exists(filePath))
@@ -80,16 +80,15 @@ namespace Utilites
             return false;
         }
 
-        // دالة لاستبدال الصورة: تحذف الصورة القديمة (لو موجودة) وتحفظ الصورة الجديدة وتعيد الرابط الجديد.
+        
         public static async Task<string> ReplaceImageAsync(IFormFile newImageFile, string? oldImageUrl)
         {
-            // حذف الصورة القديمة إذا كانت موجودة
+            
             if (!string.IsNullOrEmpty(oldImageUrl))
             {
                 DeleteImage(oldImageUrl);
             }
 
-            // حفظ الصورة الجديدة وإرجاع رابطها
             return await SaveImageAsync(newImageFile);
         }
     }
